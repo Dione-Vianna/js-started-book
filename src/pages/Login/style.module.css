@@ -1,0 +1,55 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 97vh;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  padding: 80px;
+
+  border: 1px solid #202020;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 25px 50px -12px;
+}
+
+h2 {
+  margin-bottom: 15px;
+}
+
+input,
+button {
+  margin-top: 10px;
+  border: none;
+  width: 220px;
+  height: 40px;
+  padding: 10px;
+}
+
+input {
+  border: 1px solid #151515;
+  font-size: 16px;
+}
+
+button {
+  background: green;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+a {
+  margin-top: 15px;
+  font-size: 12px;
+  color: #999;
+}
+
+p {
+  color: #999;
+}
+
+button:hover {
+  cursor: pointer;
+  background: #006900;
+}
