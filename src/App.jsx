@@ -1,11 +1,10 @@
-import { BooksList } from './pages/BooksList';
-import { Login } from './pages/Login';
+import { Route } from './Route';
 import './global.css';
 
 function App() {
   return (
     <div className="App">
-      <BooksList />
+      <Route />
     </div>
   );
 }

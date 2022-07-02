@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 
 import books from '../../book.js';
 
-export function BooksList(props) {
+export function Books(props) {
   const [newBook, setNewBook] = useState(books);
 
   function handleSubmit(event) {
@@ -21,8 +21,15 @@ export function BooksList(props) {
 
     setNewBook([...newBook, myBook]);
   }
+
+  function Logout() {
+    localStorage.removeItem('user');
+    window.location.reload();
+  }
+
   return (
     <>
+      <button onClick={Logout}>Sair</button>
       <form onSubmit={handleSubmit} className={style.form}>
         <input type="text" name="name" placeholder="Nome do livro" />
         <input type="text" name="author" placeholder="Autor" />
