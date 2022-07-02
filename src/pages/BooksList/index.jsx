@@ -1,4 +1,4 @@
-import style from './style.module.css';
+import style from './books.module.css';
 import React, { useState } from 'react';
 
 import books from '../../book.js';
