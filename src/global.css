@@ -3,9 +3,12 @@
   padding: 0;
   box-sizing: border-box;
   outline: none;
-  background: #252525;
-  color: #eee;
-
   font-family: sans-serif;
+  list-style: none;
 
+}
+
+body {
+  background: #252525;
+  color: #fff;
 }

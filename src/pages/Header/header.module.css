@@ -1,0 +1,24 @@
+.container {
+  background: #111;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 250px;
+  min-height: 100vh;
+  position: fixed;
+  margin-left: -250px;
+}
+
+.title button {
+  color: #ddd;
+}
+
+.footer {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+}
+
+.footer button {
+  color: #ddd;
+}

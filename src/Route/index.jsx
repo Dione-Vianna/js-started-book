@@ -2,6 +2,9 @@ import React, { useState, useEffect } from 'react';
 
 import { Login } from '../pages/Login';
 import { Books } from '../pages/Books';
+import { Header } from '../pages/Header';
+
+import style from './route.module.css';
 
 export function Route() {
   const [login, setLogin] = useState(false);
@@ -14,5 +17,16 @@ export function Route() {
     }
   }, []);
 
-  return <div>{!login ? <Login /> : <Books />}</div>;
+  return (
+    <div>
+      {!login ? (
+        <Login />
+      ) : (
+        <div className={style.container}>
+          <Header />
+          <Books />
+        </div>
+      )}
+    </div>
+  );
 }
