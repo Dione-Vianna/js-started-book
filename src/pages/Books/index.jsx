@@ -41,9 +41,9 @@ export function Books(props) {
       </form>
 
       <div className={style.books}>
-        {newBook.map((book) => (
-          <div className={style.container}>
-            <ul key={book.imgUrl}>
+        <div className={style.container}>
+          {books.map((book) => (
+            <ul>
               <li>
                 <img src={book.imgUrl} alt="" />
               </li>
@@ -52,8 +52,8 @@ export function Books(props) {
               <li>{book.description}</li>
               <li>{book.year}</li>
             </ul>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
     </>
   );

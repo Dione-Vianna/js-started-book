@@ -9,14 +9,3 @@
   font-family: sans-serif;
 
 }
-
-.App {
-  font-family: sans-serif;
-  display: flex;
-}
-
-li,
-a {
-  text-decoration: none;
-  list-style: none;
-}
