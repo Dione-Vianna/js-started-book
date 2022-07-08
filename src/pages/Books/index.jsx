@@ -1,7 +1,7 @@
 import style from './books.module.css';
 import React, { useState } from 'react';
 
-import books from '../../book.js';
+import books from '../../api/books';
 
 export function Books(props) {
   const [newBook, setNewBook] = useState(books);
