@@ -1,65 +1,20 @@
 import style from './books.module.css';
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
+import { useDetectOutsideClick } from './useDetectOutsideClick';
 
-const books = [
-  {
-    imgUrl: 'https://m.media-amazon.com/images/I/519goKdXs7L.jpg',
-    author: 'Max Lucado',
-    name: 'Você não esta sozinho',
-    description:
-      'Quanto de nosso tempo e esforço empregamos pensando em nós mesmos, em nossas qualidades, comparando-nos uns com os outros e fazendo tudo do nosso jeito? Mesmo nas orações, pedimos por merecidas promoções, mais reconhecimento ou vantagens.',
-    year: 2012,
-  },
-  {
-    imgUrl: 'https://images-na.ssl-images-amazon.com/images/I/81DLqA8qubL.jpg',
+import { BiDotsVertical } from 'react-icons/bi';
+import { TbTrashX } from 'react-icons/tb';
+import { FaEdit } from 'react-icons/fa';
 
-    author: 'Max Lucado',
-    name: 'Dias melhores virão',
-    description:
-      'Quando a vida parece estar sem rumo, Deus continua no controle. Quando perdemos o emprego, o casamento termina ou enfrentamos a morte de entes queridos, é normal procurar por respostas.',
-    year: 2015,
-  },
+import './styles.css';
 
-  {
-    imgUrl: 'https://images-na.ssl-images-amazon.com/images/I/81DLqA8qubL.jpg',
-
-    author: 'Max Lucado',
-    name: 'Dias melhores virão',
-    description:
-      'Quando a vida parece estar sem rumo, Deus continua no controle. Quando perdemos o emprego, o casamento termina ou enfrentamos a morte de entes queridos, é normal procurar por respostas.',
-    year: 2015,
-  },
-  {
-    imgUrl: 'https://images-na.ssl-images-amazon.com/images/I/81DLqA8qubL.jpg',
-
-    author: 'Max Lucado',
-    name: 'Dias melhores virão',
-    description:
-      'Quando a vida parece estar sem rumo, Deus continua no controle. Quando perdemos o emprego, o casamento termina ou enfrentamos a morte de entes queridos, é normal procurar por respostas.',
-    year: 2015,
-  },
-  {
-    imgUrl: 'https://images-na.ssl-images-amazon.com/images/I/81DLqA8qubL.jpg',
-
-    author: 'Max Lucado',
-    name: 'Dias melhores virão',
-    description:
-      'Quando a vida parece estar sem rumo, Deus continua no controle. Quando perdemos o emprego, o casamento termina ou enfrentamos a morte de entes queridos, é normal procurar por respostas.',
-    year: 2015,
-  },
-  {
-    imgUrl: 'https://images-na.ssl-images-amazon.com/images/I/81DLqA8qubL.jpg',
-
-    author: 'Max Lucado',
-    name: 'Dias melhores virão',
-    description:
-      'Quando a vida parece estar sem rumo, Deus continua no controle. Quando perdemos o emprego, o casamento termina ou enfrentamos a morte de entes queridos, é normal procurar por respostas.',
-    year: 2015,
-  },
-];
+import books from './books';
 
 export function Books(props) {
   const [newBook, setNewBook] = useState(books);
+  const dropdownRef = useRef(null);
+  const [isActive, setIsActive] = useDetectOutsideClick(dropdownRef, false);
+  const onClick = () => setIsActive(!isActive);
 
   function handleSubmit(event) {
     event.preventDefault();
@@ -94,21 +49,54 @@ export function Books(props) {
       <div className={style.books}>
         <div className={style.container}>
           {books.map((book) => (
-            <ul className={style.ul}>
+            <ul className={style.ul} key={book.id}>
               <li className={style.li}>
-                <img className={style.img} src={book.imgUrl} alt="" />
+                <div className={style.content}>
+                  <img className={style.img} src={book.imgUrl} alt="" />
+
+                  <div className={style.config}>
+                    {/* <a href="/" className={style.edit}>
+                      <BiDotsVertical size={20} />
+                    </a>
+                    
+                    {/* <a href="/">
+                    delete
+                    <TbTrashX />
+                  </a> */}
+
+                    <div className="menu-container">
+                      {/* <BiDotsVertical onClick={onClick} size={20} /> */}
+
+                      <nav ref={dropdownRef} className={`menu active`}>
+                        <ul>
+                          <li>
+                            <a href="#">
+                              <FaEdit />
+                              Editar
+                            </a>
+                          </li>
+                          <li>
+                            <a href="#">
+                              <TbTrashX />
+                              Excluir
+                            </a>
+                          </li>
+                        </ul>
+                      </nav>
+                    </div>
+                  </div>
+                </div>
               </li>
-              <li className={style.li}>
-                <h2 className={style.title}>Livro: {book.name}</h2>
+              <li className={style.title}>
+                <h2 className={style.title}>{book.name}</h2>
               </li>
-              <li className={style.li}>
+              <li className={style.author}>
                 <span className={style.author}>Autor: {book.author}</span>
               </li>
               <li className={style.li}>
-                <span>Descrição</span>
                 <h4 className={style.h4}>
-                  {book.description.length > 200
-                    ? book.description.substring(0, 200) + '...'
+                  {book.description.length > 150
+                    ? book.description.substring(0, 150) + '...'
                     : book.description}
                 </h4>
               </li>

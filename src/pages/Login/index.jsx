@@ -9,7 +9,7 @@ export function Login() {
   return (
     <div className={style.container}>
       <form className={style.form}>
-        <h2>Login</h2>
+        <h2>Entrar</h2>
         <input type="email" placeholder="Entre com email" />
         <input type="password" placeholder="Entre com senha" />
         <button type="button" onClick={handleSubmit}>
@@ -18,6 +18,8 @@ export function Login() {
         <a href="/">
           <p>Não tem uma conta?</p>
         </a>
+        <br />
+        {/* <span>Entre com email e senha</span> */}
       </form>
     </div>
   );
