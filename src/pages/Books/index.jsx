@@ -2,9 +2,9 @@ import style from './books.module.css';
 import React, { useState, useRef } from 'react';
 import { useDetectOutsideClick } from './useDetectOutsideClick';
 
-import { BiDotsVertical } from 'react-icons/bi';
-import { TbTrashX } from 'react-icons/tb';
-import { FaEdit } from 'react-icons/fa';
+// import { BiDotsVertical } from 'react-icons/bi';
+// import { TbTrashX } from 'react-icons/tb';
+// import { FaEdit } from 'react-icons/fa';
 
 import './styles.css';
 
@@ -13,8 +13,8 @@ import books from './books';
 export function Books(props) {
   const [newBook, setNewBook] = useState(books);
   const dropdownRef = useRef(null);
-  const [isActive, setIsActive] = useDetectOutsideClick(dropdownRef, false);
-  const onClick = () => setIsActive(!isActive);
+  // const [isActive, setIsActive] = useDetectOutsideClick(dropdownRef, false);
+  // const onClick = () => setIsActive(!isActive);
 
   function handleSubmit(event) {
     event.preventDefault();
@@ -69,7 +69,7 @@ export function Books(props) {
 
                       <nav ref={dropdownRef} className={`menu active`}>
                         <ul>
-                          <li>
+                          {/* <li>
                             <a href="#">
                               <FaEdit />
                               Editar
@@ -80,7 +80,7 @@ export function Books(props) {
                               <TbTrashX />
                               Excluir
                             </a>
-                          </li>
+                          </li> */}
                         </ul>
                       </nav>
                     </div>
