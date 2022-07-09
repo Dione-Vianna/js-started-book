@@ -1,6 +1,11 @@
 import style from './books.module.css';
 import React, { useState } from 'react';
 
+// import { TbTrashX } from 'react-icons/tb';
+// import { FaEdit } from 'react-icons/fa';
+
+// import './styles.css';
+
 import books from '../../api/books';
 
 export function Books(props) {
@@ -22,35 +27,77 @@ export function Books(props) {
     setNewBook([...newBook, myBook]);
   }
 
-  function Logout() {
-    localStorage.removeItem('user');
-    window.location.reload();
-  }
-
   return (
     <>
-      <button onClick={Logout}>Sair</button>
+      {/* 
       <form onSubmit={handleSubmit} className={style.form}>
         <input type="text" name="name" placeholder="Nome do livro" />
         <input type="text" name="author" placeholder="Autor" />
         <input type="text" name="description" placeholder="Descrição" />
         <input type="text" name="year" placeholder="Ano de lançamento" />
         <input type="text" name="imgUrl" placeholder="Url da imagem" />
+  <button type="submit">Cadastra</button>
 
-        <button type="submit">Cadastra</button>
-      </form>
+        
+      </form> */}
 
       <div className={style.books}>
         <div className={style.container}>
           {books.map((book) => (
-            <ul>
-              <li>
-                <img src={book.imgUrl} alt="" />
+            <ul className={style.ul} key={book.id}>
+              <li className={style.li}>
+                <div className={style.content}>
+                  <img className={style.img} src={book.imgUrl} alt="" />
+
+                  <div className={style.config}>
+                    {/* <a href="/" className={style.edit}>
+                      <BiDotsVertical size={20} />
+                    </a>
+                    
+                    {/* <a href="/">
+                    delete
+                    <TbTrashX />
+                  </a> */}
+
+                    <div className="menu-container">
+                      {/* <BiDotsVertical onClick={onClick} size={20} /> */}
+
+                      {/* <nav className={`menu active`}>
+                        <ul>
+                          <li>
+                            <a href="#">
+                              <FaEdit />
+                              Editar
+                            </a>
+                          </li>
+                          <li>
+                            <a href="#">
+                              <TbTrashX />
+                              Excluir
+                            </a>
+                          </li>
+                        </ul>
+                      </nav> */}
+                    </div>
+                  </div>
+                </div>
               </li>
-              <li>{book.name}</li>
-              <li>{book.author}</li>
-              <li>{book.description}</li>
-              <li>{book.year}</li>
+              <li className={style.title}>
+                <h2 className={style.title}>{book.name}</h2>
+              </li>
+              <li className={style.author}>
+                <span className={style.author}>Autor: {book.author}</span>
+              </li>
+              <li className={style.li}>
+                <h4 className={style.h4}>
+                  {book.description.length > 150
+                    ? book.description.substring(0, 150) + '...'
+                    : book.description}
+                </h4>
+              </li>
+              <li className={style.li}>
+                <p className={style.text}>Ano de lançamento: {book.year}</p>
+              </li>
             </ul>
           ))}
         </div>
