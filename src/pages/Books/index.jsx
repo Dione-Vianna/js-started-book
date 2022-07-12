@@ -1,5 +1,5 @@
 import style from './books.module.css';
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { useDetectOutsideClick } from './useDetectOutsideClick';
 
 // import { BiDotsVertical } from 'react-icons/bi';
@@ -8,29 +8,36 @@ import { useDetectOutsideClick } from './useDetectOutsideClick';
 
 import './styles.css';
 
-import books from './books';
-
 export function Books(props) {
-  const [newBook, setNewBook] = useState(books);
   const dropdownRef = useRef(null);
   // const [isActive, setIsActive] = useDetectOutsideClick(dropdownRef, false);
   // const onClick = () => setIsActive(!isActive);
 
-  function handleSubmit(event) {
-    event.preventDefault();
+  let [books, setBooks] = useState([]);
 
-    const { name, author, description, year, imgUrl } = event.target;
+  useEffect(() => {
+    fetch('/books')
+      .then((res) => res.json())
+      .then((json) => {
+        setBooks(json.books);
+      });
+  }, []);
 
-    const myBook = {
-      name: name.value,
-      author: author.value,
-      description: description.value,
-      year: year.value,
-      imgUrl: imgUrl.value,
-    };
+  // function handleSubmit(event) {
+  //   event.preventDefault();
 
-    setNewBook([...newBook, myBook]);
-  }
+  //   const { name, author, description, year, imgUrl } = event.target;
+
+  //   const myBook = {
+  //     name: name.value,
+  //     author: author.value,
+  //     description: description.value,
+  //     year: year.value,
+  //     imgUrl: imgUrl.value,
+  //   };
+
+  //   setNewBook([...newBook, myBook]);
+  // }
 
   return (
     <>
