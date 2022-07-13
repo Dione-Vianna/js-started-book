@@ -16,11 +16,12 @@
 
 .logo {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   padding: 10px;
-  width: 80%;
-  border-bottom: #252525 solid 1px;
+  margin: 10px;
+  width: 100%;
+  border-bottom: #fff solid 1px;
 }
 
 .button {
@@ -32,13 +33,45 @@
   background-color: #25252568;
 }
 
-.button:hover {
-  background-color: #252525;
+.content {
+  margin-top: 10px;
+  display: flex;
+  width: 80%;
+
 }
 
-.title button {
-  color: #ddd;
+.nav {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  align-items: center;
+  cursor: pointer;
+  padding: 10px;
+  border: none;
+
+  color: #fff;
+  font-size: 20px;
 }
+
+.icon {
+  width: 25px;
+  height: 25px;
+  margin-right: 10px;
+
+}
+
+
+.hr {
+  width: 80%;
+  border-bottom: #aaa solid 1px;
+  margin-top: 5px;
+}
+
+.nav:hover {
+  background-color: #aaa;
+  color: #252525;
+}
+
 
 .footer {
   position: absolute;

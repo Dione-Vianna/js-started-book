@@ -4,9 +4,13 @@ import { Login } from '../pages/Login';
 import { Books } from '../pages/Books';
 import { Header } from '../pages/Header';
 
+import { Home } from '../pages/Home';
+
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+
 import style from './route.module.css';
 
-export function Route() {
+export function Router() {
   const [login, setLogin] = useState(false);
 
   useEffect(() => {
@@ -23,8 +27,13 @@ export function Route() {
         <Login />
       ) : (
         <div className={style.container}>
-          <Header />
-          <Books />
+          <BrowserRouter>
+            <Header />
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="books" element={<Books />} />
+            </Routes>
+          </BrowserRouter>
         </div>
       )}
     </div>

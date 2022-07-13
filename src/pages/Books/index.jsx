@@ -1,18 +1,11 @@
 import style from './books.module.css';
-import React, { useState, useRef, useEffect } from 'react';
-// import { useDetectOutsideClick } from './useDetectOutsideClick';
+import React, { useState, useEffect } from 'react';
 
-// import { BiDotsVertical } from 'react-icons/bi';
-// import { TbTrashX } from 'react-icons/tb';
-// import { FaEdit } from 'react-icons/fa';
-
-import './styles.css';
+import { Link } from 'react-router-dom';
+import { TbTrashX } from 'react-icons/tb';
+import { FaEdit } from 'react-icons/fa';
 
 export function Books(props) {
-  const dropdownRef = useRef(null);
-  // const [isActive, setIsActive] = useDetectOutsideClick(dropdownRef, false);
-  // const onClick = () => setIsActive(!isActive);
-
   let [books, setBooks] = useState([]);
 
   useEffect(() => {
@@ -61,33 +54,22 @@ export function Books(props) {
                 <div className={style.content}>
                   <img className={style.img} src={book.imgUrl} alt="" />
 
-                  <div className={style.config}>
-                    {/* <a href="/" className={style.edit}>
-                      <BiDotsVertical size={20} />
-                    </a>
-                    
-                    {/* <a href="/">
-                    delete
-                    <TbTrashX />
-                  </a> */}
-
-                    <div className="menu-container">
-                      {/* <BiDotsVertical onClick={onClick} size={20} /> */}
-
-                      <nav ref={dropdownRef} className={`menu active`}>
+                  <div>
+                    <div className={style.menu_container}>
+                      <nav className={style.nav}>
                         <ul>
-                          {/* <li>
-                            <a href="#">
+                          <li>
+                            <Link to="edit">
                               <FaEdit />
                               Editar
-                            </a>
+                            </Link>
                           </li>
                           <li>
-                            <a href="#">
+                            <Link to="trash">
                               <TbTrashX />
                               Excluir
-                            </a>
-                          </li> */}
+                            </Link>
+                          </li>
                         </ul>
                       </nav>
                     </div>

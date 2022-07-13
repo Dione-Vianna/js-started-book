@@ -1,5 +1,9 @@
 import style from './header.module.css';
 
+import { BiBookBookmark, BiHomeAlt, BiEdit } from 'react-icons/bi';
+
+import { Link } from 'react-router-dom';
+
 export function Header() {
   function Logout() {
     localStorage.removeItem('user');
@@ -12,15 +16,32 @@ export function Header() {
           src="https://www.gstatic.com/images/branding/product/1x/keep_48dp.png"
           alt="logo"
         />
-        <h3>Bem Vindo</h3>
+        <h3>Books-Home</h3>
       </div>
 
-      <h1 className={style.title}>
-        <button className={style.button}>Home</button>
-      </h1>
-      <h1 className={style.title}>
-        <button className={style.button}>Books</button>
-      </h1>
+      <div className={style.content}>
+        <Link to="/" className={style.nav}>
+          <BiHomeAlt className={style.icon} />
+          Home
+        </Link>
+      </div>
+      <div className={style.hr} />
+
+      <div className={style.content}>
+        <Link to="books" className={style.nav}>
+          <BiBookBookmark className={style.icon} />
+          Books
+        </Link>
+      </div>
+      <div className={style.hr} />
+
+      <div className={style.content}>
+        <Link to="/create" className={style.nav}>
+          <BiEdit className={style.icon} />
+          Create
+        </Link>
+      </div>
+      <div className={style.hr} />
 
       <footer className={style.footer}>
         <button className={style.button} onClick={Logout}>
