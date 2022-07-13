@@ -1,9 +1,15 @@
-import React, { useState, useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
-import { Login } from '../pages/Login';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+
 import { Books } from '../pages/Books';
+import { Header } from '../pages/Header';
+import { Home } from '../pages/Home';
+import { Login } from '../pages/Login';
 
-export function Route() {
+import style from './route.module.css';
+
+export function Router() {
   const [login, setLogin] = useState(false);
 
   useEffect(() => {
@@ -14,5 +20,22 @@ export function Route() {
     }
   }, []);
 
-  return <div>{!login ? <Login /> : <Books />}</div>;
+  return (
+    <div>
+      {!login ? (
+        <Login />
+      ) : (
+        <div className={style.container}>
+          <Header />
+
+          <BrowserRouter>
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/books" element={<Books />} />
+            </Routes>
+          </BrowserRouter>
+        </div>
+      )}
+    </div>
+  );
 }

@@ -1,7 +1,7 @@
+import { useState } from 'react';
 import style from './books.module.css';
-import React, { useState } from 'react';
 
-import books from '../../book.js';
+import books from '../../api/books.js';
 
 export function Books(props) {
   const [newBook, setNewBook] = useState(books);
@@ -22,15 +22,9 @@ export function Books(props) {
     setNewBook([...newBook, myBook]);
   }
 
-  function Logout() {
-    localStorage.removeItem('user');
-    window.location.reload();
-  }
-
   return (
     <>
-      <button onClick={Logout}>Sair</button>
-      <form onSubmit={handleSubmit} className={style.form}>
+      {/* <form onSubmit={handleSubmit} className={style.form}>
         <input type="text" name="name" placeholder="Nome do livro" />
         <input type="text" name="author" placeholder="Autor" />
         <input type="text" name="description" placeholder="Descrição" />
@@ -38,7 +32,7 @@ export function Books(props) {
         <input type="text" name="imgUrl" placeholder="Url da imagem" />
 
         <button type="submit">Cadastra</button>
-      </form>
+      </form> */}
 
       <div className={style.books}>
         <div className={style.container}>
