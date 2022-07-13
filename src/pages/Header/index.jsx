@@ -2,6 +2,8 @@ import style from './header.module.css';
 
 import { BiBookBookmark, BiHomeAlt, BiEdit } from 'react-icons/bi';
 
+import { FcKindle, FcHome, FcInspection } from 'react-icons/fc';
+
 import { Link } from 'react-router-dom';
 
 export function Header() {
@@ -21,7 +23,7 @@ export function Header() {
 
       <div className={style.content}>
         <Link to="/" className={style.nav}>
-          <BiHomeAlt className={style.icon} />
+          <FcHome className={style.icon} />
           Home
         </Link>
       </div>
@@ -29,7 +31,7 @@ export function Header() {
 
       <div className={style.content}>
         <Link to="books" className={style.nav}>
-          <BiBookBookmark className={style.icon} />
+          <FcKindle className={style.icon} />
           Books
         </Link>
       </div>
@@ -37,7 +39,7 @@ export function Header() {
 
       <div className={style.content}>
         <Link to="/create" className={style.nav}>
-          <BiEdit className={style.icon} />
+          <FcInspection className={style.icon} />
           Create
         </Link>
       </div>
