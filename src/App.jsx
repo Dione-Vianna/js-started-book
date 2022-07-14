@@ -1,12 +1,19 @@
+import { Router } from './Router';
+
 import './global.css';
-import { Router } from './Route';
+import { Router } from './Router';
+
+import { createServer } from 'miragejs';
+
+import books from './api/books';
+
+let server = createServer();
+server.get('/books', {
+  books: books,
+});
 
 function App() {
-  return (
-    <div className="App">
-      <Router />
-    </div>
-  );
+  return <Router />;
 }
 
 export default App;

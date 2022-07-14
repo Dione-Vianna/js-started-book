@@ -1,11 +1,12 @@
-import { useEffect, useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
-
+import { Login } from '../pages/Login';
 import { Books } from '../pages/Books';
 import { Header } from '../pages/Header';
+
 import { Home } from '../pages/Home';
-import { Login } from '../pages/Login';
+
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 import style from './route.module.css';
 
@@ -26,13 +27,14 @@ export function Router() {
         <Login />
       ) : (
         <div className={style.container}>
-          <Header />
-
           <BrowserRouter>
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/books" element={<Books />} />
-            </Routes>
+            <Header />
+            <div className={style.content}>
+              <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="books" element={<Books />} />
+              </Routes>
+            </div>
           </BrowserRouter>
         </div>
       )}
