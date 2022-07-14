@@ -1,10 +1,14 @@
 import React, { useState, useEffect } from 'react';
 
-import { Login } from '../pages/Login';
-import { Books } from '../pages/Books';
-import { Header } from '../pages/Header';
-
-import { Home } from '../pages/Home';
+import {
+  Home,
+  Books,
+  Login,
+  Header,
+  CreateBook,
+  About,
+  EditBook,
+} from '../pages';
 
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
@@ -33,6 +37,9 @@ export function Router() {
               <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="books" element={<Books />} />
+                <Route path="create" element={<CreateBook />} />
+                <Route path="about" element={<About />} />
+                <Route path="edit/:id" element={<EditBook />} />
               </Routes>
             </div>
           </BrowserRouter>
