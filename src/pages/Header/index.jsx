@@ -1,12 +1,38 @@
+import React, { useState, useEffect } from 'react';
+
 import style from './header.module.css';
 
-import { BiBookBookmark, BiHomeAlt, BiEdit } from 'react-icons/bi';
-
-import { FcKindle, FcHome, FcInspection } from 'react-icons/fc';
+import {
+  FcShop,
+  FcKindle,
+  FcHome,
+  FcInspection,
+  FcAbout,
+} from 'react-icons/fc';
 
 import { Link } from 'react-router-dom';
 
 export function Header() {
+  const [isSelected, setIsSelected] = useState([
+    {
+      home: false,
+      books: false,
+      create: false,
+      about: false,
+    },
+  ]);
+
+  function handleClick(ref) {
+    setIsSelected((prevState) => {
+      let newState = { ...prevState };
+      for (let key in newState[0]) {
+        newState[0][key] = false;
+      }
+      newState[0][ref] = true;
+      return newState;
+    });
+  }
+
   function Logout() {
     localStorage.removeItem('user');
     window.location.reload();
@@ -14,15 +40,26 @@ export function Header() {
   return (
     <div className={style.container}>
       <div className={style.logo}>
-        <img
-          src="https://www.gstatic.com/images/branding/product/1x/keep_48dp.png"
-          alt="logo"
-        />
-        <h3>Books-Home</h3>
+        <FcShop className={style.icon} />
+        <h4>Books-Home</h4>
       </div>
 
       <div className={style.content}>
-        <Link to="/" className={style.nav}>
+        <Link
+          to="/"
+          style={
+            isSelected[0].home
+              ? {
+                  color: '#fff',
+                  backgroundColor: '#00bcd4',
+                }
+              : {
+                  color: '#fff',
+                }
+          }
+          onClick={() => handleClick('home')}
+          className={style.nav}
+        >
           <FcHome className={style.icon} />
           Home
         </Link>
@@ -30,7 +67,21 @@ export function Header() {
       <div className={style.hr} />
 
       <div className={style.content}>
-        <Link to="books" className={style.nav}>
+        <Link
+          to="books"
+          style={
+            isSelected[0].books === true
+              ? {
+                  color: '#fff',
+                  backgroundColor: '#00bcd4',
+                }
+              : {
+                  color: '#fff',
+                }
+          }
+          onClick={() => handleClick('books')}
+          className={style.nav}
+        >
           <FcKindle className={style.icon} />
           Books
         </Link>
@@ -38,7 +89,21 @@ export function Header() {
       <div className={style.hr} />
 
       <div className={style.content}>
-        <Link to="/create" className={style.nav}>
+        <Link
+          to="/create"
+          style={
+            isSelected[0].create === true
+              ? {
+                  color: '#fff',
+                  backgroundColor: '#00bcd4',
+                }
+              : {
+                  color: '#fff',
+                }
+          }
+          onClick={() => handleClick('create')}
+          className={style.nav}
+        >
           <FcInspection className={style.icon} />
           Create
         </Link>
@@ -46,6 +111,24 @@ export function Header() {
       <div className={style.hr} />
 
       <footer className={style.footer}>
+        <Link
+          to="/about"
+          style={
+            isSelected[0].about === true
+              ? {
+                  color: '#fff',
+                  backgroundColor: '#00bcd4',
+                }
+              : {
+                  color: '#fff',
+                }
+          }
+          onClick={() => handleClick('about')}
+          className={style.nav}
+        >
+          <FcAbout className={style.icon} />
+          About
+        </Link>
         <button className={style.button} onClick={Logout}>
           Sair
         </button>

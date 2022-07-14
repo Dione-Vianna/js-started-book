@@ -1,7 +1,6 @@
 .container {
   background-image: url('https://i.pinimg.com/originals/4f/05/8b/4f058b925e6089c1e5cdf09315644e66.jpg');
   background-size: cover;
-
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -10,8 +9,6 @@
   position: fixed;
   margin-left: -250px;
   border: #252525 solid 5px;
-  /* box-shadow: 10px 0 #252525; */
-
 }
 
 .logo {
@@ -21,7 +18,7 @@
   padding: 10px;
   margin: 10px;
   width: 100%;
-  border-bottom: #fff solid 1px;
+  border-bottom: #555 2px dashed;
 }
 
 .button {
@@ -37,7 +34,6 @@
   margin-top: 10px;
   display: flex;
   width: 80%;
-
 }
 
 .nav {
@@ -48,30 +44,26 @@
   cursor: pointer;
   padding: 10px;
   border: none;
-
   color: #fff;
   font-size: 20px;
+}
+
+.nav:hover {
+  background-color: #00bcd4;
+  color: #252525;
 }
 
 .icon {
   width: 25px;
   height: 25px;
   margin-right: 10px;
-
 }
-
 
 .hr {
   width: 80%;
   border-bottom: #aaa solid 1px;
   margin-top: 5px;
 }
-
-.nav:hover {
-  background-color: #aaa;
-  color: #252525;
-}
-
 
 .footer {
   position: absolute;

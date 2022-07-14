@@ -29,10 +29,12 @@ export function Router() {
         <div className={style.container}>
           <BrowserRouter>
             <Header />
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="books" element={<Books />} />
-            </Routes>
+            <div className={style.content}>
+              <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="books" element={<Books />} />
+              </Routes>
+            </div>
           </BrowserRouter>
         </div>
       )}
