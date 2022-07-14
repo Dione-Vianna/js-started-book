@@ -1,7 +1,6 @@
 import { Router } from './Router';
 
 import './global.css';
-import { Router } from './Router';
 
 import { createServer } from 'miragejs';
 
