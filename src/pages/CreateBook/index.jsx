@@ -1,6 +1,10 @@
 import style from './createbook.module.css';
 
+import { useNavigate } from 'react-router-dom';
+
 export function CreateBook() {
+  const navigate = useNavigate();
+
   function handleSubmit(event) {
     event.preventDefault();
 
@@ -15,6 +19,16 @@ export function CreateBook() {
     };
 
     console.log(myBook);
+
+    fetch('/api/books', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(myBook),
+    });
+
+    navigate('/books');
   }
   return (
     <div className={style.container}>

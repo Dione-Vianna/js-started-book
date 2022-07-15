@@ -1,4 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useContext } from 'react';
+
+import { ThemeContext } from '../../context';
 
 import style from './header.module.css';
 
@@ -13,6 +15,8 @@ import {
 import { Link } from 'react-router-dom';
 
 export function Header() {
+  const { state, setState } = useContext(ThemeContext);
+
   const [isSelected, setIsSelected] = useState([
     {
       home: false,
@@ -38,10 +42,29 @@ export function Header() {
     window.location.reload();
   }
   return (
-    <div className={style.container}>
+    <div
+      style={{
+        backgroundColor: state.theme === 'light' ? '#222' : '#fff',
+        color: state.theme === 'light' ? '#fff' : '#222',
+      }}
+      className={style.container}
+    >
       <div className={style.logo}>
         <FcShop className={style.icon} />
         <h4>Books-Home</h4>
+        <span
+          style={{
+            marginLeft: 10,
+            cursor: 'pointer',
+          }}
+          onClick={
+            state.theme === 'light'
+              ? () => setState({ theme: 'dark' })
+              : () => setState({ theme: 'light' })
+          }
+        >
+          {state.theme === 'light' ? '🔦' : '💡'}
+        </span>
       </div>
 
       <div className={style.content}>
@@ -50,11 +73,12 @@ export function Header() {
           style={
             isSelected[0].home
               ? {
-                  color: '#fff',
+                  color: state.theme === 'light' ? '#fff' : '#222',
+
                   backgroundColor: '#00bcd4',
                 }
               : {
-                  color: '#fff',
+                  color: state.theme === 'light' ? '#fff' : '#222',
                 }
           }
           onClick={() => handleClick('home')}
@@ -72,11 +96,11 @@ export function Header() {
           style={
             isSelected[0].books === true
               ? {
-                  color: '#fff',
+                  color: state.theme === 'light' ? '#fff' : '#222',
                   backgroundColor: '#00bcd4',
                 }
               : {
-                  color: '#fff',
+                  color: state.theme === 'light' ? '#fff' : '#222',
                 }
           }
           onClick={() => handleClick('books')}
@@ -94,11 +118,12 @@ export function Header() {
           style={
             isSelected[0].create === true
               ? {
-                  color: '#fff',
+                  color: state.theme === 'light' ? '#fff' : '#222',
+
                   backgroundColor: '#00bcd4',
                 }
               : {
-                  color: '#fff',
+                  color: state.theme === 'light' ? '#fff' : '#222',
                 }
           }
           onClick={() => handleClick('create')}
@@ -116,11 +141,12 @@ export function Header() {
           style={
             isSelected[0].about === true
               ? {
-                  color: '#fff',
+                  color: state.theme === 'light' ? '#fff' : '#222',
+
                   backgroundColor: '#00bcd4',
                 }
               : {
-                  color: '#fff',
+                  color: state.theme === 'light' ? '#fff' : '#222',
                 }
           }
           onClick={() => handleClick('about')}
@@ -129,8 +155,15 @@ export function Header() {
           <FcAbout className={style.icon} />
           About
         </Link>
-        <button className={style.button} onClick={Logout}>
-          Sair
+        <button
+          style={{
+            color: state.theme === 'light' ? '#fff' : '#222',
+            backgroundColor: '#00bcd4',
+          }}
+          className={style.button}
+          onClick={Logout}
+        >
+          Logout
         </button>
       </footer>
     </div>
