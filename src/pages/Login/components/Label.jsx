@@ -1,6 +1,6 @@
 import { withStyles } from 'react-jss';
 
-const labelStyles = (theme) => ({
+const labelStyles = () => ({
   label: {
     fontSize: '.875rem',
     display: 'block',

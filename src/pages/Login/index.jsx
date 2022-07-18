@@ -10,6 +10,7 @@ import { CustomThemeContext } from './components/ToggleThemeButton';
 
 const CustomThemeProvider = (props) => {
   const [currentTheme, setCurrentTheme] = useState('light');
+  console.log(props);
 
   const toggleTheme = () => {
     let newValue = currentTheme === 'light' ? 'dark' : 'light';

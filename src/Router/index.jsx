@@ -35,18 +35,22 @@ export function Router() {
               <Route
                 path="/registration"
                 element={
-                  <LoginLayout>
-                    <RegistrationPage />
-                  </LoginLayout>
+                  <>
+                    <LoginLayout>
+                      <RegistrationPage />
+                    </LoginLayout>
+                  </>
                 }
               />
 
               <Route
                 path="*"
                 element={
-                  <LoginLayout>
-                    <LoginPage />
-                  </LoginLayout>
+                  <>
+                    <LoginLayout>
+                      <LoginPage />
+                    </LoginLayout>
+                  </>
                 }
               />
             </Routes>
