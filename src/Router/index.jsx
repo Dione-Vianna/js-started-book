@@ -1,15 +1,14 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { ThemeContext } from '../context';
 
+import { Home, Books, Header, CreateBook, About, EditBook } from '../pages';
+
 import {
-  Home,
-  Books,
-  Login,
-  Header,
-  CreateBook,
-  About,
-  EditBook,
-} from '../pages';
+  LoginLayout,
+  LoginPage,
+  RegistrationPage,
+  CustomThemeProvider,
+} from '../pages/Login';
 
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
@@ -30,7 +29,29 @@ export function Router() {
   return (
     <div>
       {!login ? (
-        <Login />
+        <CustomThemeProvider>
+          <BrowserRouter>
+            <Routes>
+              <Route
+                path="/registration"
+                element={
+                  <LoginLayout>
+                    <RegistrationPage />
+                  </LoginLayout>
+                }
+              />
+
+              <Route
+                path="*"
+                element={
+                  <LoginLayout>
+                    <LoginPage />
+                  </LoginLayout>
+                }
+              />
+            </Routes>
+          </BrowserRouter>
+        </CustomThemeProvider>
       ) : (
         <div className={style.container}>
           <BrowserRouter>
