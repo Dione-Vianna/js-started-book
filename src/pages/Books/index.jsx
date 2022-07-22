@@ -86,7 +86,7 @@ export function Books(props) {
                   {book.name}
                 </h2>
               </li>
-              <li className={style.author}>
+              <li className={style.li}>
                 <span className={style.author}>Autor: {book.author}</span>
               </li>
               <li className={style.li}>
