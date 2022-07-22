@@ -1,5 +1,7 @@
 import style from './header.module.css';
 
+import { Link } from 'react-router-dom';
+
 export function Header() {
   function Logout() {
     localStorage.removeItem('user');
@@ -7,15 +9,19 @@ export function Header() {
   }
   return (
     <div className={style.header}>
-      <h1>Bem Vindo</h1>
+      <h1 className={style.title}>Bem Vindo</h1>
 
-      <a href="/">
+      <Link to="/">
         <button>Home</button>
-      </a>
+      </Link>
 
-      <a href="/books">
+      <Link to="/books">
         <button>Books</button>
-      </a>
+      </Link>
+
+      <Link to="/create">
+        <button>Create</button>
+      </Link>
 
       <footer className={style.footer}>
         <button onClick={Logout}>Sair</button>

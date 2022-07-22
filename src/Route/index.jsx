@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { Login } from '../pages/Login';
 import { Books } from '../pages/Books';
 import { Header } from '../pages/Header';
+import { Create } from '../pages/Create';
 
 import { Home } from '../pages/Home';
 
@@ -27,11 +28,12 @@ export function Router() {
         <Login />
       ) : (
         <div className={style.container}>
-          <Header />
           <BrowserRouter>
+            <Header />
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/books" element={<Books />} />
+              <Route path="/create" element={<Create />} />
             </Routes>
           </BrowserRouter>
         </div>
