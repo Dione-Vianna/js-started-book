@@ -50,21 +50,25 @@ export function Books(props) {
                       <nav className={style.nav}>
                         <ul>
                           <li>
-                            <Link to="edit">
-                              <FaEdit />
-                              Editar
+                            <Link to="edit" className={style.button}>
+                              <p>
+                                <FaEdit className={style.icon} />
+                              </p>
+                              <p>Editar</p>
                             </Link>
                           </li>
                           <li>
-                            <p
+                            <button
                               className={style.button}
                               onClick={() => {
                                 handleDelete(book.id);
                               }}
                             >
-                              <TbTrashX />
-                              Excluir
-                            </p>
+                              <p>
+                                <TbTrashX className={style.icon} />
+                              </p>
+                              <p>Excluir</p>
+                            </button>
                           </li>
                         </ul>
                       </nav>

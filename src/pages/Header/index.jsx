@@ -10,6 +10,7 @@ import {
   FcHome,
   FcInspection,
   FcAbout,
+  FcUpLeft,
 } from 'react-icons/fc';
 
 import { Link } from 'react-router-dom';
@@ -158,11 +159,12 @@ export function Header() {
         <button
           style={{
             color: state.theme === 'light' ? '#fff' : '#222',
-            backgroundColor: '#00bcd4',
+            cursor: 'pointer',
           }}
           className={style.button}
           onClick={Logout}
         >
+          <FcUpLeft className={style.icon} />
           Logout
         </button>
       </footer>
