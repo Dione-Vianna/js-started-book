@@ -19,7 +19,7 @@ export function Header() {
         <button>Books</button>
       </Link>
 
-      <Link to="/create">
+      <Link to="/create_book">
         <button>Create</button>
       </Link>
 

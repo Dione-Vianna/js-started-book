@@ -60,7 +60,7 @@ export function Books() {
                   </div>
                 </div>
               </li>
-              <li className={style.title}>
+              <li className={style.li}>
                 <h2 className={style.title}>{book.name}</h2>
               </li>
               <li className={style.author}>

@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { Login } from '../pages/Login';
 import { Books } from '../pages/Books';
 import { Header } from '../pages/Header';
-import { Create } from '../pages/Create';
+import { CreateBook } from '../pages/CreateBook';
 
 import { Home } from '../pages/Home';
 
@@ -33,7 +33,7 @@ export function Router() {
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/books" element={<Books />} />
-              <Route path="/create" element={<Create />} />
+              <Route path="/create_book" element={<CreateBook />} />
             </Routes>
           </BrowserRouter>
         </div>

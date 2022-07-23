@@ -44,6 +44,7 @@
 
 .li {
   margin-top: 10px;
+  background-color: transparent;
 
 
 }
@@ -59,6 +60,8 @@
 .title {
   font-size: 16px;
   margin-top: 20px;
+  background-color: transparent;
+
 }
 
 
@@ -66,6 +69,8 @@
   font-size: 14px;
   font-weight: 400;
   margin-top: 10px;
+  background-color: transparent;
+
 }
 
 .author {
@@ -73,14 +78,19 @@
   font-weight: 400;
   margin-top: -10px;
   margin-bottom: 20px;
+  background-color: transparent;
+
 }
 
 .content {
   display: flex;
   justify-content: space-between;
+  background-color: transparent;
+
 }
 
 .config {
   display: flex;
   flex-direction: column;
+
 }
