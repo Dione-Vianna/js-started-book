@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import style from './books.module.css';
+<<<<<<< HEAD
 
 import { Link } from 'react-router-dom';
 import { TbTrashX } from 'react-icons/tb';
@@ -52,6 +53,28 @@ export function Books(props) {
 
       </form> */}
 
+=======
+import React, { useState, useEffect } from 'react';
+
+// import { TbTrashX } from 'react-icons/tb';
+// import { FaEdit } from 'react-icons/fa';
+
+export function Books() {
+  const [books, setBooks] = useState([]);
+
+  useEffect(() => {
+    fetch('api/books')
+      .then((response) => response.json())
+
+      .then((data) => {
+        console.log(data.books);
+        setBooks(data.books);
+      });
+  }, []);
+
+  return (
+    <>
+>>>>>>> aula-sexta
       <div className={style.books}>
         <div className={style.container}>
           {books.map((book) => (
@@ -60,6 +83,7 @@ export function Books(props) {
                 <div className={style.content}>
                   <img className={style.img} src={book.imgUrl} alt="" />
 
+<<<<<<< HEAD
                   <div>
                     <div className={style.menu_container}>
                       <nav className={style.nav}>
@@ -78,11 +102,46 @@ export function Books(props) {
                           </li>
                         </ul>
                       </nav>
+=======
+                  <div className={style.config}>
+                    {/* <a href="/" className={style.edit}>
+                      <BiDotsVertical size={20} />
+                    </a>
+                    
+                    {/* <a href="/">
+                    delete
+                    <TbTrashX />
+                  </a> */}
+
+                    <div className="menu-container">
+                      {/* <BiDotsVertical onClick={onClick} size={20} /> */}
+
+                      {/* <nav className={`menu active`}>
+                        <ul>
+                          <li>
+                            <a href="#">
+                              <FaEdit />
+                              Editar
+                            </a>
+                          </li>
+                          <li>
+                            <a href="#">
+                              <TbTrashX />
+                              Excluir
+                            </a>
+                          </li>
+                        </ul>
+                      </nav> */}
+>>>>>>> aula-sexta
                     </div>
                   </div>
                 </div>
               </li>
+<<<<<<< HEAD
               <li className={style.title}>
+=======
+              <li className={style.li}>
+>>>>>>> aula-sexta
                 <h2 className={style.title}>{book.name}</h2>
               </li>
               <li className={style.author}>

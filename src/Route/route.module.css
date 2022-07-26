@@ -1,5 +1,11 @@
+<<<<<<< HEAD
 .container{
   display: flex;
   margin-left: 250px;
   background: #222;
+=======
+.container {
+  display: flex;
+  margin-left: 250px;
+>>>>>>> aula-sexta
 }

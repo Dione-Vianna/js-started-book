@@ -3,23 +3,13 @@
   padding: 0;
   box-sizing: border-box;
   outline: none;
-  font-family: sans-serif;
-  list-style: none;
+
   text-decoration: none;
-  scrollbar-width: none;
+  list-style: none;
 
-}
-
-body {
-  background: #252525;
+  font-family: sans-serif;
   color: #fff;
-}
-
-html {
-  scrollbar-width: none;
-  /* ParaFirefox */
-  -ms-overflow-style: none;
-  /* Para Internet Explorer e Edge */
+  background: #333;
 }
 
 html::-webkit-scrollbar {
