@@ -3,16 +3,11 @@
   padding: 0;
   box-sizing: border-box;
   outline: none;
-
   text-decoration: none;
   list-style: none;
 
   font-family: sans-serif;
   color: #fff;
   background: #333;
-}
 
-html::-webkit-scrollbar {
-  width: 0px;
-  /* Para Chrome, Safari, e Opera */
 }

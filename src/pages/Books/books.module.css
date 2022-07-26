@@ -14,7 +14,8 @@
   flex-wrap: wrap;
   padding: 20px;
   min-width: 600px;
-
+  border: 1px solid rgb(192, 186, 186, 0.2);
+  background-color: rgba(12, 12, 12, 0.632);
 }
 
 .img {
@@ -38,88 +39,58 @@
   min-width: 250px;
   max-width: 250px;
   background-color: rgba(12, 12, 12, 0.739);
-
 }
 
-.ul {
-  border: #555 solid 1px;
-  border-radius: 12px;
-  margin: 7px;
-  padding: 10px 20px;
-  min-width: 250px;
-  max-width: 250px;
-  background-color: #0c0c0c;
-}
 
 .li {
   margin-top: 10px;
   background-color: transparent;
-}
 
+
+}
 
 .h4 {
   height: 150px;
   font-size: 14px;
-  font-weight: 300;
+  font-weight: 400;
   border: 1px dashed #eeeeee77;
   padding: 10px;
-  color: #eeeeee;
 }
 
 .title {
   font-size: 16px;
   margin-top: 20px;
-  color: #ccc;
+  background-color: transparent;
+
 }
 
 
 .text {
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 400;
   margin-top: 10px;
-  color: #c5c5c5;
-}
+  background-color: transparent;
 
+}
 
 .author {
   font-size: 14px;
   font-weight: 400;
   margin-top: -10px;
   margin-bottom: 20px;
-  color: #c5c5c5;
-}
+  background-color: transparent;
 
+}
 
 .content {
   display: flex;
   justify-content: space-between;
+  background-color: transparent;
+
 }
 
 .config {
   display: flex;
   flex-direction: column;
-}
-
-
-.nav li a {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-left: 10px;
-  border: #555 solid 1px;
-  padding: 10px;
-  margin-top: 10px;
-}
-
-
-img {
-  width: 150px;
-  width: 80px;
-  color: #555;
-}
-
-.nav li a:hover {
-  background-color: #555;
-  color: #fff;
 
 }

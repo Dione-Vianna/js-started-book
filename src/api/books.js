@@ -82,6 +82,6 @@ const books = [
       'Quando a vida parece estar sem rumo, Deus continua no controle. Quando perdemos o emprego, o casamento termina ou enfrentamos a morte de entes queridos, é normal procurar por respostas.',
     year: 2015,
   },
-]
+];
 
-export default books
+export default books;
