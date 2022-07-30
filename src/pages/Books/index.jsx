@@ -1,21 +1,22 @@
-import style from './books.module.css';
-import React, { useState, useEffect } from 'react';
+import style from './books.module.css'
+import React, { useState, useEffect } from 'react'
+import { Link } from 'react-router-dom'
 
-// import { TbTrashX } from 'react-icons/tb';
-// import { FaEdit } from 'react-icons/fa';
+import { TbTrashX } from 'react-icons/tb'
+import { FaEdit } from 'react-icons/fa'
 
 export function Books() {
-  const [books, setBooks] = useState([]);
+  const [books, setBooks] = useState([])
 
   useEffect(() => {
     fetch('api/books')
       .then((response) => response.json())
 
       .then((data) => {
-        console.log(data.books);
-        setBooks(data.books);
-      });
-  }, []);
+        console.log(data.books)
+        setBooks(data.books)
+      })
+  }, [])
 
   return (
     <>
@@ -40,22 +41,22 @@ export function Books() {
                     <div className="menu-container">
                       {/* <BiDotsVertical onClick={onClick} size={20} /> */}
 
-                      {/* <nav className={`menu active`}>
-                        <ul>
+                      <nav>
+                        <ul className={style.nav}>
                           <li>
-                            <a href="#">
-                              <FaEdit />
+                            <Link to="#">
+                              <FaEdit size={20} />
                               Editar
-                            </a>
+                            </Link>
                           </li>
                           <li>
-                            <a href="#">
+                            <button className={style.button}>
                               <TbTrashX />
                               Excluir
-                            </a>
+                            </button>
                           </li>
                         </ul>
-                      </nav> */}
+                      </nav>
                     </div>
                   </div>
                 </div>
@@ -81,5 +82,5 @@ export function Books() {
         </div>
       </div>
     </>
-  );
+  )
 }

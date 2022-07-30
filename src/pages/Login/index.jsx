@@ -1,26 +1,34 @@
-import style from './login.module.css';
+import style from './login.module.css'
 
 export function Login() {
   function handleSubmit() {
-    localStorage.setItem('user', 'login com sucesso');
-    window.location.reload();
+    localStorage.setItem('user', 'login com sucesso')
+    window.location.reload()
   }
 
   return (
     <div className={style.container}>
       <form className={style.form}>
-        <h2>Login</h2>
-        <input type="email" placeholder="Entre com email" />
-        <input type="password" placeholder="Entre com senha" />
-        <button type="button" onClick={handleSubmit}>
+        <h2 className={style.h2}>Login</h2>
+        <input
+          className={style.input}
+          type="email"
+          placeholder="Entre com email"
+        />
+        <input
+          className={style.input}
+          type="password"
+          placeholder="Entre com senha"
+        />
+        <button className={style.button} type="button" onClick={handleSubmit}>
           Entrar
         </button>
-        <a href="/">
-          <p>Não tem uma conta?</p>
+        <a className={style.a} href="/">
+          <p className={style.p}>Não tem uma conta?</p>
         </a>
       </form>
     </div>
-  );
+  )
 }
 
 // Default export vs Named Exports

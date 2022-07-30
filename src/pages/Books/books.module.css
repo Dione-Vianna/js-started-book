@@ -94,3 +94,34 @@
   flex-direction: column;
 
 }
+
+.button {
+  margin-top: 10px;
+  background: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 70px;
+  height: 30px;
+
+  border: 1px solid #555;
+  border-radius: 7px;
+  color: #fff;
+}
+
+.nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 70px;
+  height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+
+
+
+
+}
