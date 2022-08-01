@@ -1,9 +1,9 @@
 import style from './books.module.css'
 import React, { useState, useEffect } from 'react'
-import { Link } from 'react-router-dom'
 
-import { TbTrashX } from 'react-icons/tb'
-import { FaEdit } from 'react-icons/fa'
+// import { Link } from 'react-router-dom'
+// import { TbTrashX } from 'react-icons/tb'
+// import { FaEdit } from 'react-icons/fa'
 
 export function Books() {
   const [books, setBooks] = useState([])
@@ -28,37 +28,22 @@ export function Books() {
                 <div className={style.content}>
                   <img className={style.img} src={book.imgUrl} alt="" />
 
-                  <div className={style.config}>
-                    {/* <a href="/" className={style.edit}>
-                      <BiDotsVertical size={20} />
-                    </a>
-                    
-                    {/* <a href="/">
-                    delete
-                    <TbTrashX />
-                  </a> */}
-
-                    <div className="menu-container">
-                      {/* <BiDotsVertical onClick={onClick} size={20} /> */}
-
-                      <nav>
-                        <ul className={style.nav}>
-                          <li>
-                            <Link to="#">
-                              <FaEdit size={20} />
-                              Editar
-                            </Link>
-                          </li>
-                          <li>
-                            <button className={style.button}>
-                              <TbTrashX />
-                              Excluir
-                            </button>
-                          </li>
-                        </ul>
-                      </nav>
-                    </div>
-                  </div>
+                  {/* <nav className={style.nav}>
+                    <ul>
+                      <li>
+                        <Link to="/edit_book">
+                          <FaEdit className={style.icon} />
+                          Editar
+                        </Link>
+                      </li>
+                      <li>
+                        <button>
+                          <TbTrashX className={style.icon} />
+                          Excluir
+                        </button>
+                      </li>
+                    </ul>
+                  </nav> */}
                 </div>
               </li>
               <li className={style.li}>

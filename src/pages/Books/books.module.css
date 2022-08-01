@@ -89,27 +89,8 @@
 
 }
 
-.config {
-  display: flex;
-  flex-direction: column;
-
-}
-
-.button {
-  margin-top: 10px;
-  background: transparent;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 70px;
-  height: 30px;
-
-  border: 1px solid #555;
-  border-radius: 7px;
-  color: #fff;
-}
-
 .nav {
+  background: transparent;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -119,9 +100,60 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+}
+
+.nav ul {
+  background: transparent;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  margin-left: 10px;
+}
+
+.nav li {
+  background: transparent;
+  display: flex;
+  width: 90px;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #555;
+  border-radius: 7px;
+  margin: 5px;
+}
+
+.nav li:hover {
+  background: #555;
+  color: #fff;
+}
 
 
+.nav button {
+  background: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 140px;
+  height: 40px;
+  border: none;
+  color: #fff;
 
+  font-size: 16px;
+}
 
+.nav a {
+  background: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 140px;
+  height: 40px;
+  color: #fff;
+}
 
+.icon {
+  background: transparent;
+  margin-right: 5px;
+  font-size: 16px;
 }
