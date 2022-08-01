@@ -1,21 +1,22 @@
-import style from './books.module.css';
-import React, { useState, useEffect } from 'react';
+import style from './books.module.css'
+import React, { useState, useEffect } from 'react'
+import { Link } from 'react-router-dom'
 
-// import { TbTrashX } from 'react-icons/tb';
-// import { FaEdit } from 'react-icons/fa';
+import { TbTrashX } from 'react-icons/tb'
+import { FaEdit } from 'react-icons/fa'
 
 export function Books() {
-  const [books, setBooks] = useState([]);
+  const [books, setBooks] = useState([])
 
   useEffect(() => {
     fetch('api/books')
       .then((response) => response.json())
 
       .then((data) => {
-        console.log(data.books);
-        setBooks(data.books);
-      });
-  }, []);
+        console.log(data.books)
+        setBooks(data.books)
+      })
+  }, [])
 
   return (
     <>
@@ -27,37 +28,22 @@ export function Books() {
                 <div className={style.content}>
                   <img className={style.img} src={book.imgUrl} alt="" />
 
-                  <div className={style.config}>
-                    {/* <a href="/" className={style.edit}>
-                      <BiDotsVertical size={20} />
-                    </a>
-                    
-                    {/* <a href="/">
-                    delete
-                    <TbTrashX />
-                  </a> */}
-
-                    <div className="menu-container">
-                      {/* <BiDotsVertical onClick={onClick} size={20} /> */}
-
-                      {/* <nav className={`menu active`}>
-                        <ul>
-                          <li>
-                            <a href="#">
-                              <FaEdit />
-                              Editar
-                            </a>
-                          </li>
-                          <li>
-                            <a href="#">
-                              <TbTrashX />
-                              Excluir
-                            </a>
-                          </li>
-                        </ul>
-                      </nav> */}
-                    </div>
-                  </div>
+                  <nav className={style.nav}>
+                    <ul>
+                      <li>
+                        <Link to="/edit_book">
+                          <FaEdit className={style.edit} />
+                          Editar
+                        </Link>
+                      </li>
+                      <li>
+                        <button>
+                          <TbTrashX className={style.delete} />
+                          Excluir
+                        </button>
+                      </li>
+                    </ul>
+                  </nav>
                 </div>
               </li>
               <li className={style.li}>
@@ -81,5 +67,5 @@ export function Books() {
         </div>
       </div>
     </>
-  );
+  )
 }

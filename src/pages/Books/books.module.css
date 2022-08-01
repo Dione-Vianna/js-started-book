@@ -61,6 +61,7 @@
   font-size: 16px;
   margin-top: 20px;
   background-color: transparent;
+  margin-bottom: 10px;
 
 }
 
@@ -89,8 +90,83 @@
 
 }
 
-.config {
+.nav {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 80px;
+  width: 100px;
+  background-color: transparent;
+}
+
+.nav ul {
+  background: transparent;
+}
+
+.nav li {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 90px;
+  margin: 10px;
+  background: transparent;
+
+
+}
+
+
+
+.nav a {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 80px;
+  padding: 7px;
+  background: transparent;
+
+  border: 1px solid #eee7;
+  border-radius: 3px;
+
+
+}
+
+.nav a:hover {
+  cursor: pointer;
+  background: #aaa;
+}
+
+.nav button {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 80px;
+  padding: 7px;
+  background: transparent;
+  border: none;
+
+  border: 1px solid #eee7;
+  border-radius: 3px;
+
+  font-size: 15px;
+
+  color: aqua;
+}
+
+.nav button:hover {
+  cursor: pointer;
+  background: #aaa;
+}
+
+.edit {
+  background: transparent;
+  font-size: 16px;
+  color: aqua;
+}
+
+.delete {
+  background: transparent;
+  font-size: 16px;
+  color: red;
 
 }
