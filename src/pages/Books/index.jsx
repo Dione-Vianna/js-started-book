@@ -1,22 +1,30 @@
 import style from './books.module.css'
 import React, { useState, useEffect } from 'react'
 
-// import { Link } from 'react-router-dom'
-// import { TbTrashX } from 'react-icons/tb'
-// import { FaEdit } from 'react-icons/fa'
+import { Link } from 'react-router-dom'
+import { TbTrashX } from 'react-icons/tb'
+import { FaEdit } from 'react-icons/fa'
 
 export function Books() {
-  const [books, setBooks] = useState([])
+  let [books, setBooks] = useState([])
+  let [update, setUpdate] = useState(false)
 
   useEffect(() => {
-    fetch('api/books')
-      .then((response) => response.json())
-
-      .then((data) => {
-        console.log(data.books)
-        setBooks(data.books)
+    fetch('/api/books')
+      .then((res) => res.json())
+      .then((json) => {
+        setBooks(json.books)
       })
-  }, [])
+  }, [update])
+
+  function handleDelete(id) {
+    fetch(`/api/books/${id}`, {
+      method: 'DELETE',
+    })
+      .then((res) => res.json())
+      .catch((err) => console.log(err))
+    setUpdate(!update)
+  }
 
   return (
     <>
@@ -28,22 +36,22 @@ export function Books() {
                 <div className={style.content}>
                   <img className={style.img} src={book.imgUrl} alt="" />
 
-                  {/* <nav className={style.nav}>
+                  <nav className={style.nav}>
                     <ul>
                       <li>
-                        <Link to="/edit_book">
+                        <Link to={`/edit_book/${book.id}`}>
                           <FaEdit className={style.icon} />
                           Editar
                         </Link>
                       </li>
                       <li>
-                        <button>
+                        <button onClick={() => handleDelete(book.id)}>
                           <TbTrashX className={style.icon} />
                           Excluir
                         </button>
                       </li>
                     </ul>
-                  </nav> */}
+                  </nav>
                 </div>
               </li>
               <li className={style.li}>

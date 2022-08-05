@@ -4,7 +4,7 @@ import { Login } from '../pages/Login'
 import { Books } from '../pages/Books'
 import { Header } from '../pages/Header'
 import { CreateBook } from '../pages/CreateBook'
-// import { EditBook } from '../pages/EditBook'
+import { EditBook } from '../pages/EditBook'
 
 import { Home } from '../pages/Home'
 
@@ -35,7 +35,7 @@ export function Router() {
               <Route path="/" element={<Home />} />
               <Route path="/books" element={<Books />} />
               <Route path="/create_book" element={<CreateBook />} />
-              {/* <Route path="/edit_book" element={<EditBook />} /> */}
+              <Route path="/edit_book/:id" element={<EditBook />} />
             </Routes>
           </BrowserRouter>
         </div>
