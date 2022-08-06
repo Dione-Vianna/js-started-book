@@ -1,10 +1,12 @@
-import React, { useState } from 'react';
-import style from './create_book.module.css';
+import React, { useState } from 'react'
+import style from './create_book.module.css'
 
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom'
+
+import { FaShapes } from 'react-icons/fa'
 
 export function CreateBook() {
-  const navigate = useNavigate();
+  const navigate = useNavigate()
 
   const [book, setBook] = useState({
     name: '',
@@ -12,10 +14,10 @@ export function CreateBook() {
     imgUrl: '',
     description: '',
     year: '',
-  });
+  })
 
   function handleSubmit(event) {
-    event.preventDefault();
+    event.preventDefault()
 
     fetch('api/books', {
       method: 'POST',
@@ -23,21 +25,25 @@ export function CreateBook() {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify(book),
-    });
+    })
 
-    navigate('/books');
+    navigate('/books')
   }
 
   return (
     <div>
       <h1>Create Book</h1>
       <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          placeholder="Titulo"
-          value={book.name}
-          onChange={(event) => setBook({ ...book, name: event.target.value })}
-        />
+        <div className={style.nameBook}>
+          <FaShapes />
+          <input
+            className={style.nameInput}
+            type="text"
+            placeholder="Titulo"
+            value={book.name}
+            onChange={(event) => setBook({ ...book, name: event.target.value })}
+          />
+        </div>
         <input
           type="text"
           placeholder="Autor"
@@ -68,5 +74,5 @@ export function CreateBook() {
         <button type="submit">Cadastrar</button>
       </form>
     </div>
-  );
+  )
 }

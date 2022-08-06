@@ -36,7 +36,6 @@ createServer({
 
     this.put('/books/:id', (schema, request) => {
       let id = request.params.id
-      console.log('id', id)
       let attrs = JSON.parse(request.requestBody)
 
       return schema.books.find(id).update(attrs)

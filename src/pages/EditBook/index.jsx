@@ -6,17 +6,14 @@ import { useNavigate, useParams } from 'react-router-dom'
 export function EditBook() {
   const params = useParams()
   const navigate = useNavigate()
-
-  console.log('params', params.id)
-
   const [book, setBook] = useState({})
+
   useEffect(() => {
     fetch(`/api/books/${params.id}`, {
       method: 'GET',
     })
       .then((res) => res.json())
       .then((json) => {
-        console.log('json', json.book)
         setBook(json.book)
       })
   }, [params])
