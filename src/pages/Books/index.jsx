@@ -9,6 +9,9 @@ export function Books() {
   let [books, setBooks] = useState([])
   let [update, setUpdate] = useState(false)
 
+  const [modal, setModal] = useState(false)
+  const [bookId, setBookId] = useState('')
+
   useEffect(() => {
     fetch('/api/books')
       .then((res) => res.json())
@@ -18,18 +21,39 @@ export function Books() {
   }, [update])
 
   function handleDelete(id) {
-    fetch(`/api/books/${id}`, {
+    setModal(!modal)
+    setBookId(id)
+  }
+
+  function Delete() {
+    fetch(`/api/books/${bookId}`, {
       method: 'DELETE',
     })
       .then((res) => res.json())
       .catch((err) => console.log(err))
     setUpdate(!update)
+    setModal(!modal)
+  }
+
+  function Modal(id) {
+    return (
+      <div className={style.modal_fade}>
+        <div className={style.modal}>
+          <h1>Realmente quer apagar esse livro?</h1>
+          <div className={style.modal_button}>
+            <button onClick={() => setModal(!modal)}>Não</button>
+            <button onClick={Delete}>Sim</button>
+          </div>
+        </div>
+      </div>
+    )
   }
 
   return (
     <>
       <div className={style.books}>
         <div className={style.container}>
+          {modal ? <Modal /> : null}
           {books.map((book) => (
             <ul className={style.ul} key={book.id}>
               <li className={style.li}>
